@@ -1,0 +1,4 @@
+env=dev
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+BACKEND_URL="http://django-web:8000/api/token/"
