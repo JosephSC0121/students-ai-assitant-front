@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   app:
-    image: autoctonos-web
+    image: references
     build:
       context: ./
       target: ${env}
@@ -12,9 +11,3 @@ services:
         - /app/.next
     ports:
       - "3000:3000"
-    networks:
-      - autoctonos_network
-
-networks:
-  autoctonos_network:
-    external: true
