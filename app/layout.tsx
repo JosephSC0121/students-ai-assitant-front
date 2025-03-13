@@ -16,8 +16,23 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: ["referencias de video", "AI", "inteligencia artificial", "análisis de video", "AcadAI"],
+  authors: [{ name: "Equipo AcadAI", url: "https://acadai.com" }],
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: "https://acadai.com",
+    siteName: siteConfig.name,
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: siteConfig.name,
+    description: siteConfig.description,
   },
 };
 

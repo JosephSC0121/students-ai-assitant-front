@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "AcadAI",
-  description: "AcadAI",
+  name: "AcadAI - Referencias Inteligentes de Videos",
+  description: "Encuentra referencias de videos automáticamente con inteligencia artificial.",
   navItems: [
     {
       label: "Próximamente",
