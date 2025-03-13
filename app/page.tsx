@@ -3,32 +3,32 @@
 import { title, subtitle } from "@/components/primitives";
 import InputLink from "@/components/input-link";
 import ResponseCard from "@/components/response-card";
-import { usePostData } from "@/auth/services/link";
 import { motion } from "framer-motion";
-import { useState  } from "react";
+import { useState } from "react";
 import { BookOpenIcon, LinkIcon, CheckCircleIcon } from "lucide-react";
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { postData } = usePostData();
+  //const { postData } = usePostData();
 
   const handleVideoSubmit = async (videoId: string) => {
     setIsLoading(true);
     setError(null);
-
-    try {
-      const response = await postData("link/", videoId);
-      setData(response.data);
-    } catch (err: any) {
-      setError(err.message || "Error al procesar el video.");
-      setData(null);
-    } finally {
-      setIsLoading(false);
-    }
+    /*
+        try {
+          const response = await postData("link/", videoId);
+          setData(response.data);
+        } catch (err: any) {
+          setError(err.message || "Error al procesar el video.");
+          setData(null);
+        } finally {
+          setIsLoading(false);
+        }
+      
+    */
   };
-
   // Staggered animation container for features
   const container = {
     hidden: { opacity: 0 },
@@ -124,7 +124,7 @@ export default function Home() {
               damping: 15
             }}
           >
-            <ResponseCard data={data || { response: "" }} isLoading={isLoading} />
+            <ResponseCard /*data={data || { response: "" }}*/ />
           </motion.div>
         )}
       </div>
