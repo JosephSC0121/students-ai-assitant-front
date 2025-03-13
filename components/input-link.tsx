@@ -3,7 +3,7 @@
 import { Input } from "@heroui/input";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ClipboardPaste , LinkIcon, ArrowRightIcon } from "lucide-react";
+import { ClipboardPaste, LinkIcon, ArrowRightIcon } from "lucide-react";
 
 export default function InputLink({ onVideoSubmit, isLoading }: { onVideoSubmit: (videoId: string) => void, isLoading?: boolean }) {
   const [videoId, setVideoId] = useState("");
@@ -75,6 +75,7 @@ export default function InputLink({ onVideoSubmit, isLoading }: { onVideoSubmit:
       <form onSubmit={handleSubmit} className="w-full">
         <div className="relative w-full">
           <Input
+            isDisabled
             label="Pega el link de tu video aquí:"
             labelPlacement="outside"
             value={inputValue}
@@ -138,15 +139,31 @@ export default function InputLink({ onVideoSubmit, isLoading }: { onVideoSubmit:
         whileTap={{ scale: 0.98 }}
         className="text-xs text-blue-500 dark:text-blue-400 hover:underline mt-1 flex items-center gap-1"
         onClick={() => {
-          const exampleUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; 
+          const exampleUrl = "https://www.youtube.com/watch?v=Ti5vfu9arXQ&ab_channel=LifeatGoogle"; 
           setInputValue(exampleUrl);
           const id = extractVideoId(exampleUrl);
-          if (id) setVideoId(id);
+          if (id) {
+            setVideoId(id);
+            setError("");
+            // Trigger the submission with the example video ID
+            onVideoSubmit(id);
+          }
         }}
         disabled={isLoading}
       >
-        <ClipboardPaste  className="h-3 w-3" /> Ver ejemplo
+        <ClipboardPaste className="h-3 w-3" /> Ver ejemplo
       </motion.button>
+      
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        className="text-xs italic blod text-gray-900 dark:text-gray-100 text-center mt-2"
+      >
+        DISCLAIMER!! Esto es una demostración, próximamente se habilitarán los links. si quieres ejecutar tu propia instancia del programa el código está disponible en: <a className="text-blue-500 underline" href="https://github.com/JosephSC0121/students-ai-assitant-front">
+  https://github.com/JosephSC0121/students-ai-assitant-front
+</a>
+      </motion.div>
     </motion.section>
   );
 }
