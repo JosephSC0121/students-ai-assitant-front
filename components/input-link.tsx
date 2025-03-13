@@ -160,7 +160,7 @@ export default function InputLink({ onVideoSubmit, isLoading }: { onVideoSubmit:
         transition={{ delay: 0.4 }}
         className="text-xs italic blod text-gray-900 dark:text-gray-100 text-center mt-2"
       >
-        DISCLAIMER!! Esto es una demostración, próximamente se habilitarán los links. si quieres ejecutar tu propia instancia del programa el código está disponible en: <a className="text-blue-500 underline" href="https://github.com/JosephSC0121/students-ai-assitant-front">
+        DISCLAIMER!! Esto es una demostración, próximamente se habilitarán los links. si quieres ejecutar tu propia instancia del programa el código está disponible en: <a target="_blank" className="text-blue-500 underline" href="https://github.com/JosephSC0121/students-ai-assitant-front">
   https://github.com/JosephSC0121/students-ai-assitant-front
 </a>
       </motion.div>
